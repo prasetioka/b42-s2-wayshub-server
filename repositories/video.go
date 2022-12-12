@@ -43,7 +43,7 @@ func (r *repository) FindMyVideos(channelID int) ([]models.Video, error) {
 
 func (r *repository) GetVideo(ID int) (models.Video, error) {
 	var video models.Video
-	err := r.db.Debug().Preload("Channel").Preload("Comments.Channel").First(&video, ID).Error
+	err := r.db.Preload("Channel").Preload("Comments.Channel").First(&video, ID).Error
 
 	return video, err
 }

@@ -25,8 +25,8 @@ type Video struct {
 	ViewCount   int                  `json:"viewCount" gorm:"type: int"`
 	ChannelID   int                  `json:"channel_id"`
 	Channel     ChannelVideoResponse `json:"channel" gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
+	Comments    []Comments           `json:"comments"`
 	// CommentsID  int                  `json:"comments_id"`
-	Comments []Comments `json:"comments"`
 }
 
 type VideoComments struct {
